@@ -1,0 +1,36 @@
+# Simple GUI example using tkinter
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
+password = "wD8c1,qd)ijr"
+valid_answers = ["Fireskoll", "Electricgodbee", "Kppugmaster", "Gray_808", "Floridaman", "Sirpillypko", "Ducklips", "Spicemanager"]
+coords = {
+    "Fireskoll": "Fireskolls base coords are likely at -1686, ~ , 3852. His base is underground!",
+    "Ducklips": "Ducklips has a villager trading center at 1721, ~ , 5709",
+    "Electricgodbee": "Electricgodbee is connected with Ducklips, and is tied to the villager trading center at 1721, ~ , 5709",
+    "Kppugmaster": "Kppugmaster has a base at -6263, ~ , 9671",
+    "Gray_808": "Gray_808 and Kppugmaster are affiliated, he is suspected to live at -6263, ~ , 9671",
+    "Spicemanager": "Gray_808 and Kppugmaster are connected to Spicemanager, he is suspected to live at -6263, ~ , 9671",
+    "Floridaman": "Unknown coordinates, suspected to share a villager trading center with Ducklips at 1721, ~ , 5709",
+    "Sirpillypko": "Sirpillypko is suspected of having multiple bases at 1319, ~ , 279, and -1664, ~ , 3733"
+}
+
+root = tk.Tk()
+root.withdraw()
+
+while True:
+    pw = simpledialog.askstring("Password", "Enter password:")
+    if pw == password:
+        break
+    messagebox.showerror("Error", "Incorrect password!")
+
+while True:
+    answer = simpledialog.askstring("Coords", f"Enter a name ({', '.join(valid_answers)}), or type exit:")
+    if answer == "exit":
+        break
+    if answer in coords:
+        messagebox.showinfo("Coords", coords[answer])
+    else:
+        messagebox.showerror("Error", "Invalid choice!")
+
+root.destroy()
