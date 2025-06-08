@@ -17,7 +17,6 @@ coords = {
 
 root = tk.Tk()
 root.withdraw()
-
 while True:
     pw = simpledialog.askstring("Password", "Enter password:")
     if pw == password:
